@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es2016",
+        "jsx": "preserve",
+        "checkJs": true,
+        "resolveJsonModule": true,
+        "baseUrl": "./src"
+    },
+    "exclude": ["node_modules", "**/node_modules/*"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+}
