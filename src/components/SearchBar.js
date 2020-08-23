@@ -3,14 +3,21 @@ import { View, StyleSheet, TextInput } from 'react-native'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import PropTypes from 'prop-types'
 
-const SearchBar = ({ data }) => {
-
-    const [state, setState] = useState({})
+const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
     return (
         <View style={styles.background}>
             <FontAwesome5 name={'search'} style={styles.iconStyles} />
-            <TextInput style={styles.inputStyle} placeholder="Search" />
+            <TextInput
+                autoCapitalize="none"
+                autoFocus={true}
+                autoCorrect={false}
+                style={styles.inputStyle}
+                placeholder="Search"
+                value={term}
+                onChangeText={onTermChange}
+                onEndEditing={onTermSubmit}
+            />
         </View>
     )
 }
@@ -35,11 +42,13 @@ const styles = StyleSheet.create({
 })
 
 SearchBar.propTypes = {
-    data: PropTypes.array.isRequired
+    term: PropTypes.string.isRequired,
+    onTermChange: PropTypes.func,
 }
 
 SearchBar.defaultProps = {
-    data: []
+    term: '',
+    onTermChange: () => { },
 }
 
 
