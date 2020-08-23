@@ -11,7 +11,7 @@ const SearchBooks = ({ data }) => {
     return (
         <View>
             <SearchBar term={searchTerm} onTermChange={term => setSearchTerm(term)} onTermSubmit={() => fetchResults(searchTerm)} />
-            {results && <Text>Found {results.length} restaurants.</Text>}
+            {results ? <Text>Found {results.length} books.</Text> : errorMessage ? <Text>{errorMessage}</Text> : null}
         </View>
     )
 }
